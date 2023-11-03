@@ -18,7 +18,11 @@
             <tr>
                 <td>{{ $item['title'] }}</td>
                 <td>{{ $item['link'] }}</td>
+<<<<<<< HEAD
                 <td>{{ $item['text'] }}</td>
+=======
+                <td>{{ $item['isi_text'] }}</td>
+>>>>>>> parent of 5969e96 (- update cilik)
             </tr>
             @endforeach
         </tbody>
