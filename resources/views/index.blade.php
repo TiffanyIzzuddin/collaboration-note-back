@@ -16,9 +16,9 @@
         <tbody>
             @foreach ($data as $item)
             <tr>
-                <td>{{ $item['title'] }}</td>
-                <td>{{ $item['link'] }}</td>
-                <td>{{ $item['text'] }}</td>
+                <td>{{ $data['title'] }}</td>
+                <td>{{ $data['link'] }}</td>
+                <td>{{ $data['text'] }}</td>
             </tr>
             @endforeach
         </tbody>

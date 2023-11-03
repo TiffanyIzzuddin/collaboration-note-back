@@ -22,5 +22,5 @@ Route::get('/', function () {
 
 Route::post('/', [DataController::class, 'push']);
 
-Route::get('/getdata', [SupabaseController::class,'getData']);
+Route::get('/getdata', [SupabaseController::class,'index']);
 

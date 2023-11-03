@@ -6,16 +6,15 @@ use GuzzleHttp\Client;
 
 class Supabase
 {
-    protected $selectedColumns;
+    private $url;
     private $apiKey;
     private $client;
-    protected $table;
-    protected $baseUrl;
 
-    public function __construct($baseUrl, $apiKey)
+    public function __construct($url, $apiKey)
     {
-        $this->baseUrl = $baseUrl;
+        $this->url = $url;
         $this->apiKey = $apiKey;
+        $this->client = new Client(['base_uri' => $this->url]);
     }
 
     public function getData($table)
@@ -29,36 +28,6 @@ class Supabase
 
         return json_decode($response->getBody(), true);
     }
-    public function from($table)
-    {
-        $this->table = $table;
-        return $this;
-    }
 
-    public function select($columns)
-    {
-    $this->selectedColumns = $columns; // Simpan daftar kolom yang dipilih
-    return $this;
-    }
-
-    public function execute()
-    {
-        // Implementasi metode execute() akan mengirimkan permintaan HTTP sesuai dengan data yang telah ditentukan
-        $url = $this->baseUrl . '/rest/v1/' . $this->table;
-        
-        // Buat permintaan HTTP menggunakan Guzzle atau klien HTTP lainnya
-        $client = new Client();
-
-        $response = $client->request('GET', $url, [
-            'headers' => [
-                'apikey' => $this->apiKey,
-                'Content-Type' => 'application/json',
-            ],
-        ]);
-
-        // Anda dapat memproses respons dan mengembalikan data yang diambil dari Supabase
-        $data = json_decode($response->getBody(), true);
-        return $data;
-    }
     // Tambahkan metode lain yang Anda perlukan di sini.
 }
