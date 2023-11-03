@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
-use App\Http\Controllers\SupabaseController;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +18,3 @@ Route::get('/', function () {
 });
 
 Route::post('/', [DataController::class, 'push']);
-
-Route::get('/get-data', [SupabaseController::class,'getDataFromSupabase']);
-
